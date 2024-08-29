@@ -19,3 +19,9 @@
 # 3. 当读取到下一个不为【ERROR】信息块时，如果 drop_flag 为 1，则更新对应的 [INFO|WARN] line_number 并把其他的置为 -1
 #    如果 drop_flag 为 0 时，输出从 [INFO|WARN] line_number 到最新的 [INFO|WARN] line_number-1 的信息块
 # 4. 把当前文件的最后一行写入 last_line 位置处
+#
+# 想法 1：
+# - 将日志文件中的 【WARN|INFO】 - 【ERROR】- 【WARN|INFO】段输出为 TMP 文件
+# - 【ERROR】 - 【WARN|INFO】段输出为 check 文件，用于判断是否含有关键字或者关键句
+
+
